@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Fetch Example</title>
+</head>
+<body>
+
+<h2>Employee Data - Check Console</h2>
+
+<script>
+    fetch("https://dummy.restapiexample.com/api/v1/employees")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Full Response:");
+            console.log(data);
+
+            console.log("Employee List:");
+            console.log(data.data);
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+        });
+</script>
+
+</body>
+</html>
+
